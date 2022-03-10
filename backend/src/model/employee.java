@@ -13,5 +13,20 @@ public class employee {
         this.name = name;
     }
 
+    public int getX(){
+        return x;
+    }
 
+    public int getY() {
+        return y;
+    }
+
+    public int getID() {
+        return ID;
+    }
+
+    public String getName() {
+        return name;
+    }
+    
 }
