@@ -17,5 +17,12 @@ public class display {
         items = new ArrayList<>();
     }
 
+    public int getX() {
+        return x;
+    }
+    public int getY() {
+        return y;
+    }
+
 
 }

@@ -19,4 +19,8 @@ public class Item {
         return type;
     }
 
+    public display getDisplay() {
+        return display;
+    }
+
 }
