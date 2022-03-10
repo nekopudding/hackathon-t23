@@ -1,6 +1,7 @@
 package model;
 
 public class user {
+    private static final int step = 3;
     private int x;
     private int y;
 
@@ -9,12 +10,20 @@ public class user {
         y = 0;
     }
 
-    public void setX(int x) {
-        this.x = x;
+    public void moveLeft() {
+        x -= step;
     }
 
-    public void setY(int y) {
-        this.y = y;
+    public  void moveRight() {
+        x+= step;
+    }
+
+    public void moveUp () {
+        y+= step;
+    }
+
+    public  void moveDown() {
+        y-= step;
     }
 
     public int getX() {
