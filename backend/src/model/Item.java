@@ -3,23 +3,12 @@ package model;
 public class Item {
     private String name;
     private int stock;
-    private int x;
-    private int y;
-    private int z;
+    private display display;
 
-    public Item(String n, int st, int x, int y) {
+    public Item(String n, int st, int x, int y, display d) {
+        display = d;
         name = n;
         stock = st;
-        this.x = x;
-        this.y = y;
-    }
-
-    public int getX(){
-        return x;
-    }
-
-    public int getY() {
-        return y;
     }
 
     public String getName() {
