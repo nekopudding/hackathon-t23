@@ -5,6 +5,7 @@ public class Item {
     private int stock;
     private int x;
     private int y;
+    private int z;
 
     public Item(String n, int st, int x, int y) {
         name = n;
