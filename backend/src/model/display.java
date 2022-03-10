@@ -17,6 +17,10 @@ public class display {
         items = new ArrayList<>();
     }
 
+    public void addItem(Item i) {
+        items.add(i);
+    }
+
     public int getX() {
         return x;
     }

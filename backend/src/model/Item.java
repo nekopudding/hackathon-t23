@@ -9,6 +9,7 @@ public class Item {
         display = d;
         name = n;
         this.type = type;
+        d.addItem(this);
     }
 
     public String getName() {
