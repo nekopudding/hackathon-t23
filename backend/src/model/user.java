@@ -9,7 +9,7 @@ public class user {
         y = 0;
     }
 
-    public void setx(int x) {
+    public void setX(int x) {
         this.x = x;
     }
 
