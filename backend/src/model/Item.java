@@ -2,21 +2,21 @@ package model;
 
 public class Item {
     private String name;
-    private int stock;
+    private int type; //0: phones. 1: sound , 2: accessories, 3: computers, 4: repair
     private display display;
 
-    public Item(String n, int st, int x, int y, display d) {
+    public Item(String n, int type, display d) {
         display = d;
         name = n;
-        stock = st;
+        this.type = type;
     }
 
     public String getName() {
         return name;
     }
 
-    public int getStock() {
-        return stock;
+    public int getType() {
+        return type;
     }
 
 }
