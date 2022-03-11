@@ -92,8 +92,5 @@ function Form(props) {
     
   )
 }
-// Form.propTypes = {
-//   setToken: PropTypes.func.isRequired
-// };
 
 export default Form;
