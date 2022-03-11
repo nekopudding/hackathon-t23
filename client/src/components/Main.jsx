@@ -2,25 +2,24 @@ import React, { useState, useEffect } from "react";
 import Item from "./Item";
 import SearchBar from "./SearchBar";
 import axios from "axios";
+import Fuse from 'fuse.js'
 
 function Main() {
-  const [notes, setNotes] = useState([]);
+  const [fullProductList, setFullProductList] = useState([]);
+  const [queriedList, setQueriedList] = useState([])
+  const [isQuerying,setIsQuerying] = useState(false)
 
-  function addNote(newNote) {
-    if (notes.map((note) => note.title).includes(newNote.title)) {
-      return false;
-    }
-    setNotes(prevNotes => {
-      return [...prevNotes, newNote];
-    });
-
-    axios
-    .post('http://localhost:4000/api', newNote)
-    .then(() => console.log('Note Created'))
-    .catch(err => {
-      console.error(err);
-    });
-    return true;
+  function searchProduct(title) {
+    const fuse = new Fuse(fullProductList, { 
+      keys: ["title", "tags"]    
+    });    
+    let matchingProducts = fuse.search(title);
+    matchingProducts = matchingProducts.map((p) => p.item);
+    setQueriedList(matchingProducts);
+    setIsQuerying(true);
+  }
+  function clearSearch() {
+    setIsQuerying(false);
   }
 
   function deleteNote(note) {
@@ -30,29 +29,40 @@ function Main() {
     .catch(err => {
       console.error(err);
     });
-    setNotes(prevNotes => {
+    setFullProductList(prevNotes => {
       return prevNotes.filter((noteItem, index) => {
         return index !== note.id;
       });
     });
   }
-
   useEffect(() => {
     fetch("/api")
       .then((res) => res.json())
-      .then((notes) => setNotes(notes));
+      .then((products) => {
+        setFullProductList(products)
+        setIsQuerying(false)
+      })
   }, []);
 
   return (
     <div className="main">
-      <SearchBar onAdd={addNote} />
-      {notes.map((noteItem, index) => {
+      <SearchBar search={searchProduct} clearSearch={clearSearch}/>
+      {!isQuerying && fullProductList.map((item, index) => {
         return (
           <Item
             key={index}
             id={index}
-            title={noteItem.title}
-            content={noteItem.content}
+            item={item}
+            onDelete={deleteNote}
+          />
+        );
+      })}
+      {isQuerying && queriedList.map((item, index) => {
+        return (
+          <Item
+            key={index}
+            id={index}
+            item={item}
             onDelete={deleteNote}
           />
         );
