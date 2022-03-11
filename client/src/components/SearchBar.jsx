@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import AddIcon from '@mui/icons-material/Add';
 import Fab from '@mui/material/Fab';
 import Zoom from '@mui/material/Zoom';
+import Button from '@mui/material/Button';
 
 function SearchBar(props) {
   const [query, setQuery] = useState("");
 
   const [expanded,setExpanded] = useState(false);
-  const [errorOnSubmit, setErrorOnSubmit] = useState(false);
 
   function handleChange(event) {
     const { value } = event.target;
@@ -17,13 +17,11 @@ function SearchBar(props) {
 
   function submitNote(event) {
     event.preventDefault();
-    setQuery("");
-    if (!props.onAdd(query)) {
-      setErrorOnSubmit(true);
+    if (query === "") { 
+      props.clearSearch()
       return;
     }
-    setErrorOnSubmit(false);
-
+    props.search(query)
   }
 
   return (
@@ -39,6 +37,7 @@ function SearchBar(props) {
         <Zoom in={expanded}>
           <Fab type="submit"><AddIcon /></Fab>
         </Zoom>
+        <Button type="submit" variant="contained">Search</Button>
       </form>
     </div>
   );
