@@ -1,9 +1,11 @@
 package model;
 
+import ui.Panel;
+
 import java.awt.*;
 
 public class employee {
-    private static final int step = 3;
+    private static final int step = 2;
     private int x;
     private int y;
     private int ID;
@@ -20,18 +22,36 @@ public class employee {
 
     public void moveLeft() {
         x -= step;
+        handleBoundary();
     }
 
     public  void moveRight() {
         x+= step;
+        handleBoundary();
     }
 
-    public void moveUp () {
+    public void moveDown () {
         y+= step;
+        handleBoundary();
     }
 
-    public  void moveDown() {
+    public  void moveUp() {
         y-= step;
+        handleBoundary();
+    }
+
+    public void handleBoundary() {
+        if (x + radius/2 >= ui.Panel.width) {
+            x-= step;
+        } else if (x - radius/2 <= 0) {
+            x += step;
+        }
+
+        if (y + radius/2 >= Panel.height) {
+            y -= step;
+        } else if (y - radius/2 <= 0) {
+            y += step;
+        }
     }
 
     public int getX(){
