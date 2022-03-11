@@ -3,6 +3,7 @@ import AddIcon from '@mui/icons-material/Add';
 import Fab from '@mui/material/Fab';
 import Zoom from '@mui/material/Zoom';
 import Button from '@mui/material/Button';
+import TextField from "@mui/material/TextField";
 
 function SearchBar(props) {
   const [query, setQuery] = useState("");
@@ -26,7 +27,7 @@ function SearchBar(props) {
 
   return (
     <div>
-      <form className="create-note"onSubmit={submitNote}>
+      <form className="create-note" onSubmit={submitNote}>
         <input
           name="content"
           onChange={handleChange}
@@ -37,7 +38,7 @@ function SearchBar(props) {
         <Zoom in={expanded}>
           <Fab type="submit"><AddIcon /></Fab>
         </Zoom>
-        <Button type="submit" variant="contained">Search</Button>
+        <Button type="submit" variant="contained" sx={{ p: 2 }}>Search</Button>
       </form>
     </div>
   );

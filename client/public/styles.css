@@ -9,9 +9,14 @@ html {
 body {
   background: #eee;
   background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
+  
+}
+.footer-space {
+  height: 100px;
 }
 .main {
   padding: 0 16px;
+  height: auto;
 }
 
 a {
@@ -32,36 +37,45 @@ header h1 {
 }
 
 footer {
-  position: absolute;
   text-align: center;
-  bottom: 0;
-  width: 100%;
-  height: 2.5rem;
+  
 }
 
 footer p {
+  bottom: 0;
+  width: 100%;
+  height: 2.5rem;
+  position: fixed;
   color: #ccc;
 }
 .note {
   background: #fff;
   border-radius: 7px;
   box-shadow: 0 2px 5px #ccc;
-  padding: 10px;
+  padding: 36px 30px 20px;
   width: 300px;
+  height:400px;
   margin: 16px;
   float: left;
 }
+
+.note:hover {
+  filter: brightness(0.95)
+}
+.note:active{
+  filter: brightness(0.8)
+}
 .note h1 {
-  font-size: 1.1em;
+  font-size: 1.4rem;
+  font-weight: 800;
   margin-bottom: 6px;
 }
 .note p {
-  font-size: 1.1em;
+  font-size: 1.1rem;
   margin-bottom: 10px;
   white-space: pre-wrap;
   word-wrap: break-word;
 }
-
 .note button {
   position: relative;
   float: right;
@@ -73,10 +87,27 @@ footer p {
   cursor: pointer;
   outline: none;
 }
-
+.note .description {
+  font-size: 1rem;
+}
+.note img {
+  display: block;
+  margin-top: auto;
+  max-width: 90%;
+  height: auto;
+  max-height: 50%;
+  
+  width: auto;
+  
+  
+}
+.product-tags {
+  margin-top: auto;
+  bottom: 10px;
+}
 form.create-note {
   position: relative;
-  width: 480px;
+  width: 800px;
   margin: 30px auto 20px auto;
   background: #fff;
   padding: 15px;
@@ -96,16 +127,19 @@ form.create-note textarea {
 form.create-note button {
   position: absolute;
   right: 18px;
-  bottom: -18px;
+  bottom: 13px;
   background: #f5ba13;
   color: #fff;
   border: none;
-  border-radius: 50%;
-  width: 36px;
+  border-radius: 5px;
+  padding: 15px;
   height: 36px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
   cursor: pointer;
   outline: none;
+}
+form.create-note button:hover {
+  background: #ee8f13;
 }
 
 
@@ -113,4 +147,8 @@ form.create-note button {
   width:30%;
   margin: 100px auto;
   height:auto;
+}
+
+.dialog {
+  padding: 15px;
 }
