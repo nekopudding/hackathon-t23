@@ -9,18 +9,21 @@ import Header from "./Header";
 import Footer from "./Footer";
 
 export default function App() {
-    const [dialog,setDialog] = useState(false);
-    function openDialog() {
-        console.log("opening dialog");
-        setDialog(true);
+    const [help,setHelp] = useState(false);
+    const [map,setMap] = useState(false);
+    function openhelp() {
+        setHelp(true);
+    }
+    function openMap() {
+        setMap(true);
     }
     return (
         <div>
-            <Header openDialog={openDialog}/>
+            <Header openHelp={openhelp} openMap={openMap} />
                 <Routes>
                     <Route exact path='/login' element={<Form isLogin={true}/>}></Route>
                     <Route exact path='/register' element={<Form isLogin={false}/>}></Route>
-                    <Route exact path='/' element={<Main dialog={dialog} setDialog={setDialog}/>}></Route>
+                    <Route exact path='/' element={<Main help={help} setHelp={setHelp} map={map} setMap={setMap}/>}></Route>
                 </Routes>
                 
             <Footer />

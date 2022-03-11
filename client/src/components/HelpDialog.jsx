@@ -6,7 +6,6 @@ import Dialog from '@mui/material/Dialog';
 import Stack from '@mui/material/Stack';
 import Tag from './Tag'
 import Divider from '@mui/material/Divider';
-import DialogContentText from '@mui/material/DialogContentText';
 import { DialogActions } from '@mui/material';
 import Typography from '@mui/material/Typography';
 
@@ -30,7 +29,7 @@ const theme = createTheme({
 
 
 
-export default function SimpleDialog(props) {
+export default function HelpDialog(props) {
   const [tags,setTags] = useState([
     {title:'TV', value:true},
     {title:'Headphones', value:true},
@@ -85,10 +84,6 @@ export default function SimpleDialog(props) {
     })
   }
 
-  useEffect(() => {
-    
-  },[open])
-
   return (
     <ThemeProvider theme={theme}>
     
@@ -119,7 +114,7 @@ export default function SimpleDialog(props) {
   );
 }
 
-SimpleDialog.propTypes = {
+HelpDialog.propTypes = {
   onClose: PropTypes.func.isRequired,
   open: PropTypes.bool.isRequired,
 };
