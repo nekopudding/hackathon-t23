@@ -16,7 +16,7 @@ const theme = createTheme({
     },
     secondary: {
       // This is green.A700 as hex.
-      main: '#11cb5f',
+      main: '#4287f5',
     },
   },
 });
@@ -27,13 +27,14 @@ function Header(props) {
     <ThemeProvider theme={theme}>
     <header>
     <Stack spacing={2} direction="row" justifyContent="space-between">
-    <Link to="/"><h1><HighlightIcon />TechFind</h1></Link>
+    <Link to="/"><h1><HighlightIcon />FindMyTech</h1></Link>
       <Stack
         direction="row"
         justifyContent="flex-end"
         alignItems="center"
         spacing={2}
       >
+        <Button variant="contained" color="secondary" onClick={props.openDialog}>Get Help</Button>
         {!isLoggedIn && 
         <Link to="/login"><Button variant="contained" color="primary">Login</Button></Link>
         }

@@ -3,8 +3,10 @@ import Item from "./Item";
 import SearchBar from "./SearchBar";
 import axios from "axios";
 import Fuse from 'fuse.js'
+import { alignProperty } from "@mui/material/styles/cssUtils";
+import SimpleDialog from "./SimpleDialog";
 
-function Main() {
+function Main(props) {
   const [fullProductList, setFullProductList] = useState([]);
   const [queriedList, setQueriedList] = useState([])
   const [isQuerying,setIsQuerying] = useState(false)
@@ -22,18 +24,12 @@ function Main() {
     setIsQuerying(false);
   }
 
-  function deleteNote(note) {
-    axios
-    .delete('http://localhost:4000/api', { data: note })
-    .then(() => console.log('Note Deleted'))
-    .catch(err => {
-      console.error(err);
-    });
-    setFullProductList(prevNotes => {
-      return prevNotes.filter((noteItem, index) => {
-        return index !== note.id;
-      });
-    });
+  function handleClose() {
+    props.setDialog(false);
+  }
+  const productClick = (item) => {
+    // query for the location of the product in the store and send this location to the pathfinding alg.
+    //receive back the path to take
   }
   useEffect(() => {
     fetch("/api")
@@ -53,7 +49,7 @@ function Main() {
             key={index}
             id={index}
             item={item}
-            onDelete={deleteNote}
+            productClick={productClick}
           />
         );
       })}
@@ -63,10 +59,14 @@ function Main() {
             key={index}
             id={index}
             item={item}
-            onDelete={deleteNote}
+            productClick={productClick}
           />
         );
       })}
+      <SimpleDialog
+        open={props.dialog}
+        onClose={handleClose}
+      />
     </div>
   );
 }
