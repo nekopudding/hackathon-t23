@@ -1,11 +1,11 @@
-import React, { useEffect,useState } from "react";
+import React from "react";
 import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
 import { Box } from "@mui/material";
 
 function Item(props) {
   if (!props.item ) return <div></div>;
-  const {title,description,rating,price,image,tags} = props.item;
+  const {title,rating,price,image,tags} = props.item;
 
   
   function handleClick() {
@@ -29,7 +29,7 @@ function Item(props) {
       <h1>{title}</h1>
       <p className="rating">Rating: {rating}</p>
       <p className="price">${price}</p>
-      <img src={image} width="200"/>
+      <img src={image} width="200" alt="product"/>
       <Stack direction="row" spacing={1} className="product-tags">
       {tags.map((tag,index) => <Chip key={index} label={tag} variant="outlined" />)}
       </Stack>

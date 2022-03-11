@@ -1,14 +1,8 @@
 import React, { useState } from "react";
-import AddIcon from '@mui/icons-material/Add';
-import Fab from '@mui/material/Fab';
-import Zoom from '@mui/material/Zoom';
 import Button from '@mui/material/Button';
-import TextField from "@mui/material/TextField";
 
 function SearchBar(props) {
   const [query, setQuery] = useState("");
-
-  const [expanded,setExpanded] = useState(false);
 
   function handleChange(event) {
     const { value } = event.target;
@@ -33,11 +27,8 @@ function SearchBar(props) {
           onChange={handleChange}
           value={query}
           placeholder="Search..."
-          rows={ expanded ? "3" : "1"}
+          rows="1"
         />
-        <Zoom in={expanded}>
-          <Fab type="submit"><AddIcon /></Fab>
-        </Zoom>
         <Button type="submit" variant="contained" sx={{ p: 2 }}>Search</Button>
       </form>
     </div>

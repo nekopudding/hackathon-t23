@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import HighlightIcon from '@mui/icons-material/Highlight';
 import {Link} from "react-router-dom";
 
@@ -22,7 +22,6 @@ const theme = createTheme({
 });
 
 function Header(props) {
-  const [isLoggedIn,setIsLoggedIn] = useState(false);
   return (
     <ThemeProvider theme={theme}>
     <header>
@@ -35,15 +34,9 @@ function Header(props) {
         spacing={2}
       >
         <Button variant="contained" color="secondary" onClick={props.openDialog}>Get Help</Button>
-        {!isLoggedIn && 
         <Link to="/login"><Button variant="contained" color="primary">Login</Button></Link>
-        }
-        {!isLoggedIn && 
         <Link to="/register"><Button variant="outlined">Register</Button></Link>
-        }
-        {isLoggedIn &&
-          <Link to="/"><Button variant="contained">Logout</Button></Link>
-        }
+          {/* <Link to="/"><Button variant="contained">Logout</Button></Link> */}
       </Stack>
     </Stack>
     </header>

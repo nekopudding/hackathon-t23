@@ -6,7 +6,6 @@ import Dialog from '@mui/material/Dialog';
 import Stack from '@mui/material/Stack';
 import Tag from './Tag'
 import Divider from '@mui/material/Divider';
-import DialogContentText from '@mui/material/DialogContentText';
 import { DialogActions } from '@mui/material';
 import Typography from '@mui/material/Typography';
 

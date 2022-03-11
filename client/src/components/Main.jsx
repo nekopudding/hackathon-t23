@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Item from "./Item";
 import SearchBar from "./SearchBar";
-import axios from "axios";
 import Fuse from 'fuse.js'
-import { alignProperty } from "@mui/material/styles/cssUtils";
 import SimpleDialog from "./SimpleDialog";
 
 function Main(props) {
