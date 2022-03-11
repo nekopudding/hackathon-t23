@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import HighlightIcon from '@mui/icons-material/Highlight';
 import {Link} from "react-router-dom";
 
@@ -18,24 +18,37 @@ const theme = createTheme({
       // This is green.A700 as hex.
       main: '#4287f5',
     },
+    tertiary: {
+      main: '#3fe629'
+    }
   },
 });
 
 function Header(props) {
+  const [logReg, setLogReg] = useState(false);
+
+  function handleLogReg() {
+    setLogReg(true);
+  }
   return (
     <ThemeProvider theme={theme}>
     <header>
     <Stack spacing={2} direction="row" justifyContent="space-between">
-    <Link to="/"><h1><HighlightIcon />FindMyTech</h1></Link>
+    <Link to="/" onClick={() => setLogReg(false)}><h1><HighlightIcon />FindMyTech</h1></Link>
       <Stack
         direction="row"
         justifyContent="flex-end"
         alignItems="center"
         spacing={2}
       >
-        <Button variant="contained" color="secondary" onClick={props.openDialog}>Get Help</Button>
-        <Link to="/login"><Button variant="contained" color="primary">Login</Button></Link>
-        <Link to="/register"><Button variant="outlined">Register</Button></Link>
+      {!logReg &&
+        <Button variant="contained" color="secondary" onClick={props.openHelp}>Get Help</Button>}
+      {!logReg &&
+        <Button variant="contained" color="tertiary" onClick={props.openMap}>Store Map</Button>
+      }
+
+        <Link to="/login"><Button variant="contained" color="primary" onClick={handleLogReg}>Login</Button></Link>
+        <Link to="/register"><Button variant="outlined" onClick={handleLogReg}>Register</Button></Link>
           {/* <Link to="/"><Button variant="contained">Logout</Button></Link> */}
       </Stack>
     </Stack>

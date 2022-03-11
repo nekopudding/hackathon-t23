@@ -29,7 +29,7 @@ const theme = createTheme({
 
 
 
-export default function SimpleDialog(props) {
+export default function HelpDialog(props) {
   const [tags,setTags] = useState([
     {title:'TV', value:true},
     {title:'Headphones', value:true},
@@ -84,10 +84,6 @@ export default function SimpleDialog(props) {
     })
   }
 
-  useEffect(() => {
-    
-  },[open])
-
   return (
     <ThemeProvider theme={theme}>
     
@@ -118,7 +114,7 @@ export default function SimpleDialog(props) {
   );
 }
 
-SimpleDialog.propTypes = {
+HelpDialog.propTypes = {
   onClose: PropTypes.func.isRequired,
   open: PropTypes.bool.isRequired,
 };

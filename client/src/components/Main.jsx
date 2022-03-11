@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import Item from "./Item";
 import SearchBar from "./SearchBar";
 import Fuse from 'fuse.js'
-import SimpleDialog from "./SimpleDialog";
+import HelpDialog from "./HelpDialog";
+import MapDialog from "./MapDialog";
 
 function Main(props) {
   const [fullProductList, setFullProductList] = useState([]);
@@ -23,7 +24,8 @@ function Main(props) {
   }
 
   function handleClose() {
-    props.setDialog(false);
+    props.setHelp(false);
+    props.setMap(false);
   }
   const productClick = (item) => {
     // query for the location of the product in the store and send this location to the pathfinding alg.
@@ -61,8 +63,12 @@ function Main(props) {
           />
         );
       })}
-      <SimpleDialog
-        open={props.dialog}
+      <HelpDialog
+        open={props.help}
+        onClose={handleClose}
+      />
+      <MapDialog
+        open={props.map}
         onClose={handleClose}
       />
     </div>
