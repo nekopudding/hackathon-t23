@@ -25,6 +25,10 @@ public class display {
         items.add(i);
     }
 
+    public List<Item> getItems() {
+        return items;
+    }
+
     public int getX() {
         return x;
     }

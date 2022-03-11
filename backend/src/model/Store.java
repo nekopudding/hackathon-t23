@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Store {
-    private List<display> displayList;
+    public static List<display> displayList;
     private List<employee> employeeList;
     private database database;
     private user user;
