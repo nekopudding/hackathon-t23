@@ -9,6 +9,7 @@ app.use(express.json());
 
 main().catch(err => console.log(err));
 async function main() {
+  // await mongoose.connect('mongodb+srv://nekopuddding:test123@cluster0.igkgu.mongodb.net/productDB');
   await mongoose.connect('mongodb://localhost:27017/productDB');
 }
 

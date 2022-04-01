@@ -13,5 +13,8 @@
     "express": "^4.17.3",
     "express-http-proxy": "^1.6.3"
   },
-  "type": "module"
+  "type": "module",
+  "engines": {
+    "node": "16.14.0"
+  }
 }
